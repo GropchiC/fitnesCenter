@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="fitnesCenter.Fitnes"
+        Icon = "\fitnesCenter\Pho\logo-abd.ico"
+        Title="Форма клиентов">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <DataGrid Name="DataGrid" x:CompileBindings="False" Margin ="10 20 0 0" Height="250">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ID}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Familia" Binding="{Binding Familia}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Imia" Binding="{Binding Imia}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="NomerTelefona" Binding="{Binding NomerTelefona}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Datarojdeneeia" Binding="{Binding Datarojdeneeia}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Pol" Binding="{Binding Pol}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Skidka" Binding="{Binding Skidka}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Margin = "10 10 0 0"> Поиск по названию: </TextBlock>
+                <TextBox Name="ServSearch" Width="150" Margin ="5 10 0 0" TextChanged="Search"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="delButton" Content="Удалить" Click="Del" Margin=" 10 10 15 10"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+    
+</Window>
