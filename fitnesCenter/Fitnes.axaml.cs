@@ -51,10 +51,27 @@ public partial class Fitnes : Window
         DataGrid.ItemsSource = gds;
     }
 
-    public void Del(object? sender, TextChangedEventArgs e)
+    private void Del(object? sender, RoutedEventArgs e)
     {
-        var dl = _services;
-        dl = 
-        
+        try
+        {
+            mat usr = DataGrid.SelectedItem as mat;
+            if (usr == null)
+            {
+                return;
+            }
+            conn = new MySqlConnection(connStr);
+            conn.Open();
+            string sql = "DELETE FROM klient WHERE id = " + usr.ID;
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            _services.Remove(usr);
+            ShowTable(fullTable);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 }
